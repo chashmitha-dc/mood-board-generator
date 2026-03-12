@@ -1,0 +1,182 @@
+/* Mood Board Generator - Pastel Glassmorphism */
+:root {
+  --bg1: #ffe5f0;
+  --bg2: #d6f5ff;
+  --bg3: #f6f2ff;
+  --glass: rgba(255, 255, 255, 0.42);
+  --glass-strong: rgba(255, 255, 255, 0.68);
+  --shadow: 0 28px 60px rgba(0, 0, 0, 0.12);
+  --radius: 24px;
+  --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --transition: 300ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: #2e2b33;
+  background: radial-gradient(circle at top, var(--bg1) 0%, var(--bg2) 40%, var(--bg3) 100%);
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+.app {
+  width: min(460px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.brand {
+  text-align: center;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.brand h1 {
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: var(--glass);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(25px);
+  overflow: hidden;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mood {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.quote {
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition), opacity var(--transition);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.palette {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 56px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  transition: transform var(--transition), opacity var(--transition);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.palette span {
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+.icons {
+  font-size: 2.3rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition), opacity var(--transition);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icon-fade {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.quote-fade,
+.palette-fade,
+.icons-fade {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.button {
+  margin-top: 0.5rem;
+  padding: 0.95rem 1.4rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+  box-shadow: 0 18px 26px rgba(0, 0, 0, 0.12);
+  color: #302a3b;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  backdrop-filter: blur(14px);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 32px rgba(0, 0, 0, 0.16);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 14px 22px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 420px) {
+  .card {
+    padding: 1.1rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
